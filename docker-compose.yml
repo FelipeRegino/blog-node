@@ -1,0 +1,23 @@
+version: '3'
+services:
+  mongo:
+    image: mongo
+    networks:
+      - blog-rede
+    container_name: mongo
+
+  node:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    image: feliperegino/blog-node
+    container_name: blog
+    ports:
+      - "3000:3000"
+    networks:
+      - blog-rede
+    depends_on:
+      - "mongo"
+networks:
+  blog-rede:
+    driver: bridge
