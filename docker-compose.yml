@@ -6,11 +6,11 @@ services:
       - blog-rede
     container_name: mongo
 
-  node:
+  api:
     build:
-      dockerfile: ./Dockerfile
+      dockerfile: ./api/Dockerfile
       context: .
-    image: feliperegino/blog-node
+    image: feliperegino/blog-node-api
     container_name: blog
     ports:
       - "3000:3000"
@@ -18,6 +18,20 @@ services:
       - blog-rede
     depends_on:
       - "mongo"
+
+  client:
+    build:
+      dockerfile: ./client/Dockerfile
+      context: .
+    image: feliperegino/blog-node-client
+    container_name: client
+    ports:
+      - "8000:8000"
+    networks:
+      - blog-rede
+    depends_on:
+      - "api"
+
 networks:
   blog-rede:
     driver: bridge

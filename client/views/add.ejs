@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adicionar Post</title>
+</head>
+<body>
+	<form action="http://localhost:8000/store" method="POST">
+		<label for="title">Titulo</label>
+		<input type="text" name="title" id="title">
+		<label for="date">Data</label>
+		<input type="date" name="date" id="date">
+		<label for="body">Post</label>
+		<textarea name="body" id="body"></textarea>
+		<label>Autor:</label>
+		<label for="name">Nome</label>
+		<input type="text" name="name" id="name" placeholder="Nome">
+		<label for="picture">Foto</label>
+		<input type="text" name="picture" placeholder="Foto">
+		<button>Enviar</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog</title>
+</head>
+<body>
+		<a href="add/">Adicionar Post</a>
+		<% posts.forEach(function(post) { %>
+			<%
+				var date = new Date(post.date);
+				var post_date = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+			%>
+			<a href="blog/<%= post._id %>">
+				<h2><%= post.title %></h2>
+			</a>
+			<p>Autor: <%= post.author.name %></p>
+			<small>postado: <%= post_date %></small>
+			<br>
+			<a href="update/<%= post._id %>">Editar</a>
+			<a href="delete/<%= post._id %>">Excluir</a>
+			<hr>
+		<% }) %>
+</body>
+</html>

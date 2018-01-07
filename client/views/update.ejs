@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Atualizar Post</title>
+</head>
+<body>
+	<form action="http://localhost:8000/refresh/<%= post._id %>" method="POST">
+		<label for="title">Titulo</label>
+		<input type="text" name="title" id="title" value="<%= post.title %>">
+		<label for="date">Data</label>
+		<input type="date" name="date" id="date" value="<%= post.date %>">
+		<label for="body">Post</label>
+		<textarea name="body" id="body"><%= post.body %></textarea>
+		<label>Autor:</label>
+		<label for="name">Nome</label>
+		<input type="text" name="name" id="name" placeholder="Nome" value="<%= post.author.name %>">
+		<label for="picture">Foto</label>
+		<input type="text" name="picture" id="picture" placeholder="Foto" value="<%= post.author.picture %>">
+		<button>Enviar</button>
+	</form>
+</body>

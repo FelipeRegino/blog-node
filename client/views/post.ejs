@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= post.title %></title>
+</head>
+<body>
+	<h1><%= post.title %></h1>
+	<%
+		var date = new Date(post.date);
+		var post_date = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+	%>
+	<img src="<%= post.author.picture %>" style="height: 100px; width: 100px; border-radius: 100%">
+	<p>Autor: <%= post.author.name %></p>
+	<small>postado: <%= post_date %></small>
+	<hr>
+
+	<p><%- post.body %></p>
+</body>
+</html>
