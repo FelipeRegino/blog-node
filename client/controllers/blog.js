@@ -1,7 +1,8 @@
 const request = require('request');
+var config = require('config');
 
 function index(req, res) {
-	request('http://172.20.0.3:3000/blog', function(error, response, body){
+	request('http://'+config.IPAddress+':3000/blog', function(error, response, body){
 	    if (error){
 	        console.log(error)
 	    }else{
@@ -13,7 +14,7 @@ function index(req, res) {
 }
 
 function post(req, res) {
-	request('http://172.20.0.3:3000/blog/' + req.params.id, function(error, response, body){
+	request('http://'+config.IPAddress+':3000/blog/' + req.params.id, function(error, response, body){
 	    if (error){
 	        console.log(error)
 	    }else{
@@ -32,7 +33,7 @@ function add(req, res) {
 function store(req, res) {
 
 	var options = {
-		uri: 'http://172.20.0.3:3000/blog',
+		uri: 'http://'+config.IPAddress+':3000/blog',
 		method: 'POST',
 		json:{
 			"title": req.body.title,
@@ -61,7 +62,7 @@ function store(req, res) {
 function refresh(req, res) {
 
 	var options = {
-		uri: 'http://172.20.0.3:3000/blog/' + req.params.id,
+		uri: 'http://'+config.IPAddress+':3000/blog/' + req.params.id,
 		method: 'PUT',
 		json:{
 			"title": req.body.title,
@@ -89,7 +90,7 @@ function refresh(req, res) {
 
 
 function update(req, res) {
-	request('http://172.20.0.3:3000/blog/' + req.params.id, function(error, response, body){
+	request('http://'+config.IPAddress+':3000/blog/' + req.params.id, function(error, response, body){
 	    if (error){
 	        console.log(error)
 	    }else{
@@ -103,7 +104,7 @@ function update(req, res) {
 function erase(req, res) {
 	
 	var options = {
-		uri: 'http://172.20.0.3:3000/blog/' + req.params.id,
+		uri: 'http://'+config.IPAddress+':3000/blog/' + req.params.id,
 		method: 'DELETE' 
 	}
 	
